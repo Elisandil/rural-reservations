@@ -1,0 +1,27 @@
+services:
+  postgres:
+    container_name: postgres-rural-res
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: rural-res
+
+    volumes:
+      - postgres:/data/postgres
+
+    ports:
+      - "5432:5432"
+
+    networks:
+      - rural-res
+    restart: unless-stopped
+
+networks:
+  rural-res:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
