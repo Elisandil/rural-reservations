@@ -1,18 +1,17 @@
-package com.aogdev.rural.infrastructure.entity.entities;
+package com.aogdev.rural.infrastructure.persistence.entities;
 
-import com.aogdev.rural.infrastructure.entity.converters.GenderConverter;
-import com.aogdev.rural.infrastructure.entity.enums.Gender;
+import com.aogdev.rural.infrastructure.persistence.converters.GenderConverter;
+import com.aogdev.rural.infrastructure.persistence.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Table(name = "customers", indexes = {
-        @Index(name = "idx_customers_name", columnList = "reservation_id")
+        @Index(name = "idx_customers_reservation", columnList = "reservation_id")
 })
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class CustomerEntity {
 
