@@ -1,4 +1,4 @@
-package com.aogdev.rural.infrastructure.entity.entities;
+package com.aogdev.rural.infrastructure.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,9 +14,8 @@ import java.util.Set;
         @Index(name = "idx_reservations_accommodation_id", columnList = "accommodation_id, start_date, end_date")
 })
 @Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class ReservationEntity {
 
