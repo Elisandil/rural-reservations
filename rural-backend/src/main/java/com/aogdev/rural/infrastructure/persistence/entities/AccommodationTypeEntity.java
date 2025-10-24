@@ -1,18 +1,13 @@
-package com.aogdev.rural.infrastructure.entity.entities;
+package com.aogdev.rural.infrastructure.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "accommodation_types")
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class AccommodationTypeEntity {
 
     @Id
@@ -25,7 +20,10 @@ public class AccommodationTypeEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    /*
     @OneToMany(mappedBy = "accommodationType", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<AccommodationEntity> accommodations = new HashSet<>();
+    */
 }
+
