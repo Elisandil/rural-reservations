@@ -1,4 +1,4 @@
-package com.aogdev.rural.infrastructure.entity.entities;
+package com.aogdev.rural.infrastructure.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,15 +6,12 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "admins")
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class AdminEntity {
 
@@ -46,7 +43,9 @@ public class AdminEntity {
     @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
+    /*
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     @Builder.Default
     private Set<AccommodationEntity> accommodations = new HashSet<>();
+    */
 }
