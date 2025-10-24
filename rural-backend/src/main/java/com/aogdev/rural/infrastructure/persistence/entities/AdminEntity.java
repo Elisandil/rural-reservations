@@ -1,4 +1,4 @@
-package com.aogdev.rural.models;
+package com.aogdev.rural.infrastructure.entity.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Admins {
+public class AdminEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,8 @@ public class Admins {
     private String password;
 
     @Column(nullable = false)
-    private Boolean active;
+    @Builder.Default
+    private Boolean active = true;
 
     @CreationTimestamp
     @Column(name = "created_at",nullable = false)
@@ -47,5 +48,5 @@ public class Admins {
 
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private Set<Accommodations> accommodations = new HashSet<>();
+    private Set<AccommodationEntity> accommodations = new HashSet<>();
 }
