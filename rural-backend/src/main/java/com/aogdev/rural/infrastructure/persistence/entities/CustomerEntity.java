@@ -1,7 +1,7 @@
 package com.aogdev.rural.infrastructure.persistence.entities;
 
 import com.aogdev.rural.infrastructure.persistence.converters.GenderConverter;
-import com.aogdev.rural.infrastructure.persistence.enums.Gender;
+import com.aogdev.rural.infrastructure.persistence.enumerated.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
