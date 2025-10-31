@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f761c1f7-7f68-434c-a1a6-15ab36bf7ea8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/enumerated/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/enumerated/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Accommodation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Accommodation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/AccommodationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/AccommodationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/DNI.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/DNI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/DateRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/DateRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/PersonName.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/PersonName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/domain/valueobjects/Phone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/infrastructure/persistence/entities/AccommodationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/infrastructure/persistence/entities/AccommodationTypeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/infrastructure/persistence/entities/AdminEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/infrastructure/persistence/entities/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/java/com/aogdev/rural/infrastructure/persistence/entities/ReservationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rural-backend/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rural-backend/src/main/resources/tables.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Exception" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Elisandil&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Elisandil/rural-reservations&quot;,
+    &quot;accountId&quot;: &quot;9c5b4d86-97b1-4e06-8451-04e73077fb5b&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="34Pphtvb8NNXVH8Nat55ftdRfDM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RuralApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Antonio/Desktop/FP/Proyectos personales/rural-res&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.completions.CompletionsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="RuralApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="rural-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aogdev.rural.RuralApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f761c1f7-7f68-434c-a1a6-15ab36bf7ea8" name="Changes" comment="" />
+      <created>1761125184459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761125184459</updated>
+      <workItem from="1761125185913" duration="4818000" />
+      <workItem from="1761143258557" duration="573000" />
+      <workItem from="1761211103195" duration="2228000" />
+      <workItem from="1761220826359" duration="2292000" />
+      <workItem from="1761283719910" duration="2244000" />
+      <workItem from="1761285994232" duration="214000" />
+      <workItem from="1761286219807" duration="2276000" />
+      <workItem from="1761288934136" duration="1134000" />
+      <workItem from="1761290085059" duration="57000" />
+      <workItem from="1761290152949" duration="8671000" />
+      <workItem from="1761559846571" duration="789000" />
+      <workItem from="1761561186679" duration="19000" />
+      <workItem from="1761721145646" duration="25000" />
+      <workItem from="1761804176631" duration="12361000" />
+      <workItem from="1761829262395" duration="3647000" />
+      <workItem from="1761886764319" duration="425000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

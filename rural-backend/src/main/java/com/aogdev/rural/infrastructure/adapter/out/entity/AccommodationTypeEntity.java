@@ -1,4 +1,4 @@
-package com.aogdev.rural.infrastructure.persistence.entities;
+package com.aogdev.rural.infrastructure.adapter.out.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

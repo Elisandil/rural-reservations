@@ -1,5 +1,6 @@
 package com.aogdev.rural.domain.model;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 import com.aogdev.rural.domain.valueobjects.Email;
 import com.aogdev.rural.domain.valueobjects.PersonName;
 import com.aogdev.rural.domain.valueobjects.Phone;
@@ -20,7 +21,7 @@ public record Admin(
     public Admin {
 
         if (passwordHash == null || passwordHash.isBlank()) {
-            throw new IllegalArgumentException("Password cannot be empty");
+            throw new InvalidDomainObjectException("Admin", "password hash cannot be empty");
         }
         if (active == null) {
             active = true;

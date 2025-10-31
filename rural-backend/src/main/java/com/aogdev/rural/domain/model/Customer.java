@@ -1,6 +1,7 @@
 package com.aogdev.rural.domain.model;
 
 import com.aogdev.rural.domain.enumerated.Gender;
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 import com.aogdev.rural.domain.valueobjects.DNI;
 import com.aogdev.rural.domain.valueobjects.Email;
 import com.aogdev.rural.domain.valueobjects.PersonName;
@@ -18,12 +19,11 @@ public record Customer(
 ) {
 
     public Customer {
-
         if (nationality == null || nationality.isBlank()) {
-            throw new IllegalArgumentException("Nationality cannot be empty");
+            throw new InvalidDomainObjectException("Customer", "nationality cannot be empty");
         }
         if (gender == null) {
-            throw new IllegalArgumentException("Gender cannot be null");
+            throw new InvalidDomainObjectException("Customer", "gender cannot be null");
         }
         if (isPilgrim == null) {
             isPilgrim = false;

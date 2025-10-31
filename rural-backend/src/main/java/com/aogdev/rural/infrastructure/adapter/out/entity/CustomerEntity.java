@@ -1,7 +1,7 @@
-package com.aogdev.rural.infrastructure.persistence.entities;
+package com.aogdev.rural.infrastructure.adapter.out.entity;
 
-import com.aogdev.rural.infrastructure.persistence.converters.GenderConverter;
-import com.aogdev.rural.infrastructure.persistence.enumerated.Gender;
+import com.aogdev.rural.infrastructure.adapter.out.entity.converter.GenderAttributeConverter;
+import com.aogdev.rural.domain.enumerated.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -39,7 +39,7 @@ public class CustomerEntity {
     private String nationality;
 
     @Column(nullable = false, length = 1)
-    @Convert(converter = GenderConverter.class)
+    @Convert(converter = GenderAttributeConverter.class)
     private Gender gender;
 
     @Column(name = "is_pilgrim", nullable = false)

@@ -12,7 +12,7 @@ CREATE TABLE admins (
 CREATE TABLE accommodation_types (
     id SMALLSERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
-    description VARCHAR
+    description TEXT
 );
 
 INSERT INTO accommodation_types (name, description) VALUES
@@ -51,11 +51,11 @@ CREATE TABLE reservations (
     total_price DECIMAL(10,2) NOT NULL,
     paid BOOLEAN DEFAULT false,
     booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    notes VARCHAR,
+    notes TEXT,
 
     CONSTRAINT fk_accommodations_reservations FOREIGN KEY (accommodation_id) REFERENCES accommodations(id),
     CONSTRAINT fk_accommodations_admins FOREIGN KEY (admin_id) REFERENCES admins(id),
-    CONSTRAINT chk_dates CHECK (start_date > end_date),
+    CONSTRAINT chk_dates CHECK (start_date < end_date),
     CONSTRAINT chk_beds CHECK (beds_reserved > 0)
 );
 

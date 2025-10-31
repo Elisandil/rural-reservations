@@ -1,5 +1,6 @@
 package com.aogdev.rural.domain.model;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 import com.aogdev.rural.domain.valueobjects.DateRange;
 import com.aogdev.rural.domain.valueobjects.Money;
 
@@ -23,19 +24,19 @@ public record Reservation(
     public Reservation {
 
         if (accommodationId == null) {
-            throw new IllegalArgumentException("Accommodation ID cannot be null");
+            throw new InvalidDomainObjectException("Reservation", "accommodation ID cannot be null");
         }
         if (adminId == null) {
-            throw new IllegalArgumentException("Admin ID cannot be null");
+            throw new InvalidDomainObjectException("Reservation", "admin ID cannot be null");
         }
         if (dateRange == null) {
-            throw new IllegalArgumentException("Date Range cannot be null");
+            throw new InvalidDomainObjectException("Reservation", "date range cannot be null");
         }
         if (bedsReserved == null || bedsReserved <= 0) {
-            throw new IllegalArgumentException("Beds Reserved must be positive");
+            throw new InvalidDomainObjectException("Reservation", "beds reserved must be positive");
         }
         if (totalPrice == null) {
-            throw new IllegalArgumentException("Total price cannot be null");
+            throw new InvalidDomainObjectException("Reservation", "total price cannot be null");
         }
         if (paid == null) {
             paid = false;
@@ -65,9 +66,7 @@ public record Reservation(
     }
 
     public int customerCount() {
-        return customers != null
-                ? customers.size()
-                : 0;
+        return customers != null ? customers.size() : 0;
     }
 
     public boolean overlaps(DateRange other) {

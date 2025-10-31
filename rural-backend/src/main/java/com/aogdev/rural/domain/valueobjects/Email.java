@@ -1,5 +1,7 @@
 package com.aogdev.rural.domain.valueobjects;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
+
 import java.util.regex.Pattern;
 
 public record Email(String value) {
@@ -10,12 +12,12 @@ public record Email(String value) {
     public Email {
 
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("The email cannot be null or blank");
+            throw new InvalidDomainObjectException("Email", "cannot be null or blank");
         }
         String normalized = value.trim().toLowerCase();
 
         if (!EMAIL_PATTERN.matcher(normalized).matches()) {
-            throw new IllegalArgumentException("Invalid format: " + value);
+            throw new InvalidDomainObjectException("Email", "invalid format: " + value);
         }
         value = normalized;
     }

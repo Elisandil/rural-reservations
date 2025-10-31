@@ -1,5 +1,7 @@
 package com.aogdev.rural.domain.enumerated;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
+
 public enum Gender {
     MALE('M'),
     FEMALE('F'),
@@ -12,14 +14,16 @@ public enum Gender {
     }
 
     public static Gender fromCode(char code) {
-
-        for(Gender gender : values()) {
-
+        for (Gender gender : values()) {
             if (gender.code == code) {
                 return gender;
             }
         }
-        throw new IllegalArgumentException("Invalid gender code: " + code);
+        throw new InvalidDomainObjectException("Gender", "invalid code: " + code);
+    }
+
+    public char getCode() {
+        return code;
     }
 }
 

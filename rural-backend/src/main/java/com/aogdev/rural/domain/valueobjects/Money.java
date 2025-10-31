@@ -1,5 +1,7 @@
 package com.aogdev.rural.domain.valueobjects;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.math.RoundingMode;
@@ -7,16 +9,14 @@ import java.math.RoundingMode;
 public record Money(BigDecimal value, Currency currency) {
 
     public Money {
-
         if (value == null) {
-            throw new IllegalArgumentException("Value cannot be null");
+            throw new InvalidDomainObjectException("Money", "value cannot be null");
         }
         if (value.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException("Value cannot be negative");
+            throw new InvalidDomainObjectException("Money", "value cannot be negative");
         }
-
         if (currency == null) {
-            throw new IllegalArgumentException("Currency cannot be null");
+            throw new InvalidDomainObjectException("Money", "currency cannot be null");
         }
 
         value = value.setScale(2, RoundingMode.HALF_UP);
@@ -32,7 +32,7 @@ public record Money(BigDecimal value, Currency currency) {
 
     public Money add(Money other) {
         if (!currency.equals(other.currency)) {
-            throw new IllegalArgumentException("Cannot add different currencies");
+            throw new InvalidDomainObjectException("Money", "cannot add different currencies");
         }
         return new Money(value.add(other.value), currency);
     }

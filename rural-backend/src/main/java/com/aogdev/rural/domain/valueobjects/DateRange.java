@@ -1,5 +1,7 @@
 package com.aogdev.rural.domain.valueobjects;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -8,10 +10,10 @@ public record DateRange(LocalDate startDate, LocalDate endDate) {
     public DateRange {
 
         if (startDate == null || endDate == null) {
-            throw new IllegalArgumentException("The date range cannot be null");
+            throw new InvalidDomainObjectException("DateRange", "start date and end date cannot be null");
         }
         if (!endDate.isAfter(startDate)) {
-            throw new IllegalArgumentException("The end date must be after the start date");
+            throw new InvalidDomainObjectException("DateRange", "end date must be after start date");
         }
     }
 

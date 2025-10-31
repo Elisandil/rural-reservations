@@ -1,5 +1,6 @@
 package com.aogdev.rural.domain.model;
 
+import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 import com.aogdev.rural.domain.valueobjects.Money;
 
 public record Accommodation(
@@ -14,13 +15,13 @@ public record Accommodation(
     public Accommodation {
 
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Accommodation name cannot be empty");
+            throw new InvalidDomainObjectException("Accommodation", "name cannot be empty");
         }
         if (pricePerNight == null) {
-            throw new IllegalArgumentException("Price per night cannot be empty");
+            throw new InvalidDomainObjectException("Accommodation", "price per night cannot be null");
         }
         if (bedCapacity == null || bedCapacity <= 0) {
-            throw new IllegalArgumentException("Bed capacity must be positive");
+            throw new InvalidDomainObjectException("Accommodation", "bed capacity must be positive");
         }
         if (active == null) {
             active = true;
@@ -28,9 +29,8 @@ public record Accommodation(
     }
 
     public Money calculateTotalPrice(int nights) {
-
         if (nights <= 0) {
-            throw new IllegalArgumentException("Nights must be positive");
+            throw new InvalidDomainObjectException("Accommodation", "nights must be positive");
         }
         return pricePerNight.multiply(nights);
     }
