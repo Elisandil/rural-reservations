@@ -41,7 +41,7 @@ En desarrollo activo
 Antonio Ortega
 
 
-### NOTA:
+### ⚠️ NOTA:
 
-⚠️ Nota: Este documento está sujeto a cambios. 
+Este documento está sujeto a cambios. 
 La información contenida aquí puede actualizarse o modificarse en futuras versiones del proyecto.
