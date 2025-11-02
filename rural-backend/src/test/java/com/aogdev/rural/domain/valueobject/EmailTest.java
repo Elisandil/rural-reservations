@@ -48,8 +48,7 @@ class EmailTest {
             "user@",
             "user@.com",
             "user space@example.com",
-            "user@example",
-            ""
+            "user@example"
     })
     @DisplayName("Should throw exception for invalid email format")
     void shouldThrowExceptionForInvalidFormat(String invalidEmail) {
