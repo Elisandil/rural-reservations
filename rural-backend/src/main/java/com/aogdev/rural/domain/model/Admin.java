@@ -1,9 +1,9 @@
 package com.aogdev.rural.domain.model;
 
 import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
-import com.aogdev.rural.domain.valueobjects.Email;
-import com.aogdev.rural.domain.valueobjects.PersonName;
-import com.aogdev.rural.domain.valueobjects.Phone;
+import com.aogdev.rural.domain.valueobject.Email;
+import com.aogdev.rural.domain.valueobject.PersonName;
+import com.aogdev.rural.domain.valueobject.Phone;
 
 import java.time.LocalDateTime;
 

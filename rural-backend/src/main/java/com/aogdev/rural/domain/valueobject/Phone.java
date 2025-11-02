@@ -1,4 +1,4 @@
-package com.aogdev.rural.domain.valueobjects;
+package com.aogdev.rural.domain.valueobject;
 
 import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 
