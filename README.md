@@ -1,47 +1,47 @@
-# Sistema de Gestión de Alojamientos Rurales
+# Rural Accommodation Management System
 
-API REST para la gestión de reservas y alojamientos rurales, construida con Spring Boot siguiendo arquitectura hexagonal (puertos y adaptadores).
+REST API for managing rural accommodations and reservations, built with Spring Boot following a hexagonal 
+architecture (ports and adapters).
 
-## Tecnologías
+## Technologies
 
 - **Java** (Spring Boot)
-- **Maven** - Gestión de dependencias
-- **PostgreSQL** - Base de datos
-- **Arquitectura Hexagonal** - Arquitectura de puertos y servicios
+- **Maven** - Dependency management
+- **PostgreSQL** - Database
+- **H2** - Testing Database
+- **Hexagonal Architecture** - Ports and adapters architecture
 
-## Funcionalidades
+## Features
 
-### Gestión de Alojamientos
-- Crear y actualizar alojamientos rurales
-- Búsqueda y consulta de disponibilidad
-- Gestión de tipos de alojamiento y capacidad
+### Accommodation Management
+- Create and update rural accommodations
+- Search and check availability
+- Manage accommodation types and capacity
 
-### Gestión de Reservas
-- Crear reservas con validación de disponibilidad
-- Actualizar y cancelar reservas
-- Control de conflictos de fechas
-- Verificación de capacidad
+### Booking Management
+- Create reservations with availability validation
+- Update and cancel reservations
+- Handle date conflicts
+- Verify capacity
 
-### Gestión de Usuarios
-- **Clientes**: Registro y gestión de usuarios
-- **Administradores**: Gestión del sistema
+### User Management
+- **Clients**: User registration and management
+- **Administrators**: System management
 
-## Arquitectura
+## Architecture
 
-El proyecto sigue los principios de **Arquitectura Hexagonal**:
+The project follows the principles of **Hexagonal Architecture**:
 
 - **Domain**: Modelos, value objects, excepciones
-- **Application**: Puertos (interfaces) y servicios
-- **Infrastructure**: Controllers, DTOs, configuración
+- **Application**: Ports (interfaces) and services
+- **Infrastructure**: Controllers, DTOs, configuration
  
-## Estado del Proyecto
-En desarrollo activo
+## Project Status
+Actively under development
 
-## Autor
+## Author
 Antonio Ortega
 
-
-### ⚠️ NOTA:
-
-Este documento está sujeto a cambios. 
-La información contenida aquí puede actualizarse o modificarse en futuras versiones del proyecto.
+#### ⚠️ NOTE:
+This document is subject to change. 
+The information contained herein may be updated or modified in future versions of the project.
