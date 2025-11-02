@@ -1,4 +1,4 @@
-package com.aogdev.rural.infrastructure.adapter.out.entity;
+package com.aogdev.rural.infrastructure.adapter.out.jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -42,10 +42,4 @@ public class AdminEntity {
     @UpdateTimestamp
     @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
-
-    /*
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-    @Builder.Default
-    private Set<AccommodationEntity> accommodations = new HashSet<>();
-    */
 }
