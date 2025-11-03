@@ -15,7 +15,7 @@ public record Email(String value) {
             throw new InvalidDomainObjectException("Email", "cannot be null or blank");
         }
         String normalized = value.trim().toLowerCase();
-
+        
         if (!EMAIL_PATTERN.matcher(normalized).matches()) {
             throw new InvalidDomainObjectException("Email", "invalid format: " + value);
         }

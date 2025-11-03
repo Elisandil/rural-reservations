@@ -2,44 +2,59 @@ package com.aogdev.rural.infrastructure.adapter.out.jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "admins")
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class AdminEntity {
+public class AdminJpaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String firstName;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, length = 200)
+    private String surnames;
+
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 
     @Column(nullable = false, length = 15)
     private String phone;
 
-    @Column(nullable = false, length = 250)
-    private String password;
+    @Column(nullable = false, length = 255)
+    private String passwordHash;
 
     @Column(nullable = false)
-    @Builder.Default
-    private Boolean active = true;
+    private Boolean active;
 
-    @CreationTimestamp
-    @Column(name = "created_at",nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @UpdateTimestamp
-    @Column(name = "updated_at",nullable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
+        if (updatedAt == null) {
+            updatedAt = LocalDateTime.now();
+        }
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

@@ -44,4 +44,4 @@ Antonio Ortega
 
 #### ⚠️ NOTE:
 This document is subject to change. 
-The information contained herein may be updated or modified in future versions of the project.
+The information contained here may be updated or modified in future versions of the project.
