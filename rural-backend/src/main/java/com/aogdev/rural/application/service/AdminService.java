@@ -9,7 +9,6 @@ import com.aogdev.rural.domain.model.Admin;
 import com.aogdev.rural.domain.valueobject.Email;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
-@Service
 public class AdminService implements
         CreateAdminUseCase,
         GetAdminUseCase,
