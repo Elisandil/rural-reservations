@@ -9,6 +9,7 @@ public record AccommodationType(
 ) {
 
     public AccommodationType {
+
         if (name == null || name.isBlank()) {
             throw new InvalidDomainObjectException("AccommodationType", "name cannot be blank");
         }
