@@ -6,24 +6,19 @@ import lombok.*;
 @Entity
 @Table(name = "accommodation_types")
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class AccommodationTypeEntity {
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class AccommodationTypeJpaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 100)
     private String name;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 500)
     private String description;
-
-    /*
-    @OneToMany(mappedBy = "accommodationType", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Builder.Default
-    private Set<AccommodationEntity> accommodations = new HashSet<>();
-    */
 }
-
