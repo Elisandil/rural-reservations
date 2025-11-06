@@ -1,4 +1,4 @@
-package com.aogdev.rural.infrastructure.adapter.out.entity;
+package com.aogdev.rural.infrastructure.adapter.out.jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,7 +19,7 @@ public class AccommodationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accommodation_type_id", nullable = false)
-    private AccommodationTypeEntity accommodationType;
+    private AccommodationTypeJpaEntity accommodationType;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -36,7 +36,7 @@ public class AccommodationEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "admin_id", nullable = false)
-    private AdminEntity admin;
+    private AdminJpaEntity admin;
 
     /*
     @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
