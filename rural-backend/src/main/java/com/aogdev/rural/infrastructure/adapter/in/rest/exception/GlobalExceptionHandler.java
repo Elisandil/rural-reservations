@@ -1,6 +1,11 @@
 package com.aogdev.rural.infrastructure.adapter.in.rest.exception;
 
 import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
+import com.aogdev.rural.domain.exception.accommodation.AccommodationAlreadyExistsException;
+import com.aogdev.rural.domain.exception.accommodation.AccommodationNotActiveException;
+import com.aogdev.rural.domain.exception.accommodation.AccommodationNotFoundException;
+import com.aogdev.rural.domain.exception.accommodationType.AccommodationTypeAlreadyExistsException;
+import com.aogdev.rural.domain.exception.accommodationType.AccommodationTypeNotFoundException;
 import com.aogdev.rural.domain.exception.admin.AdminAlreadyExistsException;
 import com.aogdev.rural.domain.exception.admin.AdminNotActiveException;
 import com.aogdev.rural.domain.exception.admin.AdminNotFoundException;
@@ -53,10 +58,80 @@ public class GlobalExceptionHandler {
         log.error("Admin not active: {}", ex.getMessage());
 
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
-                HttpStatus.FORBIDDEN, 
+                HttpStatus.FORBIDDEN,
                 ex.getMessage()
         );
         problemDetail.setTitle("Admin Not Active");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(AccommodationTypeNotFoundException.class)
+    public ProblemDetail handleAccommodationTypeNotFoundException(AccommodationTypeNotFoundException ex) {
+        log.error("Accommodation type not found: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Accommodation Type Not Found");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(AccommodationTypeAlreadyExistsException.class)
+    public ProblemDetail handleAccommodationTypeAlreadyExistsException(AccommodationTypeAlreadyExistsException ex) {
+        log.error("Accommodation type already exists: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Accommodation Type Already Exists");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(AccommodationNotFoundException.class)
+    public ProblemDetail handleAccommodationNotFoundException(AccommodationNotFoundException ex) {
+        log.error("Accommodation not found: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Accommodation Not Found");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(AccommodationAlreadyExistsException.class)
+    public ProblemDetail handleAccommodationAlreadyExistsException(AccommodationAlreadyExistsException ex) {
+        log.error("Accommodation already exists: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Accommodation Already Exists");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(AccommodationNotActiveException.class)
+    public ProblemDetail handleAccommodationNotActiveException(AccommodationNotActiveException ex) {
+        log.error("Accommodation not active: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.FORBIDDEN,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Accommodation Not Active");
         problemDetail.setProperty("timestamp", Instant.now());
 
         return problemDetail;
