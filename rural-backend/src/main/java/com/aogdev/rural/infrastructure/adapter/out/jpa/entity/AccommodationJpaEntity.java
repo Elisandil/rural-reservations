@@ -8,39 +8,31 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "accommodations")
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class AccommodationEntity {
+public class AccommodationJpaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "accommodation_type_id", nullable = false)
-    private AccommodationTypeJpaEntity accommodationType;
+    @Column(nullable = false)
+    private Short accommodationTypeId;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 200)
     private String name;
 
-    @Column(name = "price_per_night", nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal pricePerNight;
 
-    @Column(name = "bed_capacity")
+    @Column(nullable = false, length = 3)
+    private String currency;
+
+    @Column(nullable = false)
     private Integer bedCapacity;
 
     @Column(nullable = false)
-    @Builder.Default
-    private Boolean active = true;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "admin_id", nullable = false)
-    private AdminJpaEntity admin;
-
-    /*
-    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Builder.Default
-    private Set<ReservationEntity> reservations = new HashSet<>();
-    */
+    private Boolean active;
 }
