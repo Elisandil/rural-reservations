@@ -1,21 +1,21 @@
-package com.aogdev.rural.infrastructure.adapter.out.entity;
+package com.aogdev.rural.infrastructure.adapter.out.jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "reservations", indexes = {
-        @Index(name = "idx_reservations_accommodation_id", columnList = "accommodation_id, start_date, end_date")
+        @Index(name = "idx_reservations_accommodation", columnList = "accommodation_id"),
+        @Index(name = "idx_reservations_dates", columnList = "start_date, end_date"),
+        @Index(name = "idx_reservations_admin", columnList = "admin_id")
 })
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ReservationEntity {
 
@@ -23,13 +23,11 @@ public class ReservationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "accommodation_id", nullable = false)
-    private AccommodationEntity accommodation;
+    @Column(name = "accommodation_id", nullable = false)
+    private Long accommodationId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "admin_id", nullable = false)
-    private AdminEntity admin;
+    @Column(name = "admin_id", nullable = false)
+    private Long adminId;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -38,37 +36,45 @@ public class ReservationEntity {
     private LocalDate endDate;
 
     @Column(name = "beds_reserved", nullable = false)
-    @Builder.Default
-    private Integer bedsReserved = 1;
+    private Integer bedsReserved;
 
     @Column(name = "total_price", nullable = false, precision = 10, scale = 2)
     private BigDecimal totalPrice;
+
+    @Column(nullable = false, length = 3)
+    private String currency;
 
     @Column(nullable = false)
     @Builder.Default
     private Boolean paid = false;
 
-    @CreationTimestamp
     @Column(name = "booking_date", nullable = false, updatable = false)
     private LocalDate bookingDate;
 
     @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Builder.Default
-    private Set<CustomerEntity> customers = new HashSet<>();
-
     @PrePersist
+    protected void onCreate() {
+
+        if (bookingDate == null) {
+            bookingDate = LocalDate.now();
+        }
+        validateDates();
+    }
+
     @PreUpdate
+    protected void onUpdate() {
+        validateDates();
+    }
+    
     private void validateDates() {
 
         if (endDate != null && startDate != null && !endDate.isAfter(startDate)) {
-            throw new IllegalArgumentException("The end date must be after the start date");
+            throw new IllegalArgumentException("End date must be after start date");
         }
-
         if (bedsReserved != null && bedsReserved <= 0) {
-            throw new IllegalArgumentException("The number of beds reserved must be greater than 0");
+            throw new IllegalArgumentException("Beds reserved must be greater than 0");
         }
     }
 }
