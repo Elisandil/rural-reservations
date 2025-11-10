@@ -1,4 +1,5 @@
-package com.aogdev.rural.domain.valueobjects;
+
+package com.aogdev.rural.domain.valueobject;
 
 import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
 
@@ -22,8 +23,8 @@ public record DateRange(LocalDate startDate, LocalDate endDate) {
     }
 
     public boolean overlaps(DateRange otherRange) {
-        return !this.endDate.isBefore(otherRange.startDate) &&
-                !otherRange.endDate.isBefore(this.startDate);
+        return this.startDate.isBefore(otherRange.endDate) &&
+                otherRange.startDate.isBefore(this.endDate);
     }
 
     public boolean contains(LocalDate date) {
