@@ -35,4 +35,12 @@ public record Accommodation(
     public boolean hasCapacityFor(int beds) {
         return bedCapacity == null || bedCapacity >= beds;
     }
+
+    public Money calculateTotalPrice(int nights) {
+
+        if (nights <= 0) {
+            throw new InvalidDomainObjectException("Accommodation", "nights must be positive");
+        }
+        return pricePerNight.multiply(nights);
+    }
 }
