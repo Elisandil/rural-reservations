@@ -19,6 +19,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/admins/**").permitAll()
                         .requestMatchers("/api/v1/accommodation-types/**").permitAll()
                         .requestMatchers("/api/v1/accommodations/**").permitAll()
+                        .requestMatchers("/api/v1/reservations/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> {});

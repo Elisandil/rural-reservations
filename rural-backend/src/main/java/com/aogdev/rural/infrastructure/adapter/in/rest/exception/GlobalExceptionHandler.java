@@ -9,6 +9,9 @@ import com.aogdev.rural.domain.exception.accommodationType.AccommodationTypeNotF
 import com.aogdev.rural.domain.exception.admin.AdminAlreadyExistsException;
 import com.aogdev.rural.domain.exception.admin.AdminNotActiveException;
 import com.aogdev.rural.domain.exception.admin.AdminNotFoundException;
+import com.aogdev.rural.domain.exception.reservation.ReservationNotFoundException;
+import com.aogdev.rural.domain.exception.reservation.InsufficientCapacityException;
+import com.aogdev.rural.domain.exception.reservation.ReservationOverlapException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -196,6 +199,48 @@ public class GlobalExceptionHandler {
                 "An unexpected error occurred"
         );
         problemDetail.setTitle("Internal Server Error");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(ReservationNotFoundException.class)
+    public ProblemDetail handleReservationNotFoundException(ReservationNotFoundException ex) {
+        log.error("Reservation not found: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Reservation Not Found");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(ReservationOverlapException.class)
+    public ProblemDetail handleReservationOverlapException(ReservationOverlapException ex) {
+        log.error("Reservation overlap: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Reservation Overlap");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(InsufficientCapacityException.class)
+    public ProblemDetail handleInsufficientCapacityException(InsufficientCapacityException ex) {
+        log.error("Insufficient capacity: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Insufficient Capacity");
         problemDetail.setProperty("timestamp", Instant.now());
 
         return problemDetail;
