@@ -13,18 +13,16 @@ public enum Gender {
         this.code = code;
     }
 
+    public char getCode() {
+        return code;
+    }
+
     public static Gender fromCode(char code) {
         for (Gender gender : values()) {
             if (gender.code == code) {
                 return gender;
             }
         }
-        throw new InvalidDomainObjectException("Gender", "invalid code: " + code);
-    }
-
-    public char getCode() {
-        return code;
+        throw new InvalidDomainObjectException("Gender", "invalid gender code: " + code);
     }
 }
-
-
