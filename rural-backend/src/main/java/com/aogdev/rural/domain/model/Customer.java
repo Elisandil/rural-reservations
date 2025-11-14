@@ -2,13 +2,14 @@ package com.aogdev.rural.domain.model;
 
 import com.aogdev.rural.domain.enumerated.Gender;
 import com.aogdev.rural.domain.exception.InvalidDomainObjectException;
-import com.aogdev.rural.domain.valueobjects.DNI;
-import com.aogdev.rural.domain.valueobjects.Email;
-import com.aogdev.rural.domain.valueobjects.PersonName;
-import com.aogdev.rural.domain.valueobjects.Phone;
+import com.aogdev.rural.domain.valueobject.DNI;
+import com.aogdev.rural.domain.valueobject.Email;
+import com.aogdev.rural.domain.valueobject.PersonName;
+import com.aogdev.rural.domain.valueobject.Phone;
 
 public record Customer(
         Long id,
+        Long reservationId,
         PersonName name,
         Phone phone,
         Email email,
@@ -19,6 +20,10 @@ public record Customer(
 ) {
 
     public Customer {
+
+        if (reservationId == null) {
+            throw new InvalidDomainObjectException("Customer", "reservation ID cannot be null");
+        }
         if (nationality == null || nationality.isBlank()) {
             throw new InvalidDomainObjectException("Customer", "nationality cannot be empty");
         }
