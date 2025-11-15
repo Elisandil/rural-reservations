@@ -9,6 +9,8 @@ import com.aogdev.rural.domain.exception.accommodationType.AccommodationTypeNotF
 import com.aogdev.rural.domain.exception.admin.AdminAlreadyExistsException;
 import com.aogdev.rural.domain.exception.admin.AdminNotActiveException;
 import com.aogdev.rural.domain.exception.admin.AdminNotFoundException;
+import com.aogdev.rural.domain.exception.customer.CustomerAlreadyExistsException;
+import com.aogdev.rural.domain.exception.customer.CustomerNotFoundException;
 import com.aogdev.rural.domain.exception.reservation.ReservationNotFoundException;
 import com.aogdev.rural.domain.exception.reservation.InsufficientCapacityException;
 import com.aogdev.rural.domain.exception.reservation.ReservationOverlapException;
@@ -241,6 +243,34 @@ public class GlobalExceptionHandler {
                 ex.getMessage()
         );
         problemDetail.setTitle("Insufficient Capacity");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ProblemDetail handleCustomerNotFoundException(CustomerNotFoundException ex) {
+        log.error("Customer not found: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.NOT_FOUND,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Customer Not Found");
+        problemDetail.setProperty("timestamp", Instant.now());
+
+        return problemDetail;
+    }
+
+    @ExceptionHandler(CustomerAlreadyExistsException.class)
+    public ProblemDetail handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex) {
+        log.error("Customer already exists: {}", ex.getMessage());
+
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                ex.getMessage()
+        );
+        problemDetail.setTitle("Customer Already Exists");
         problemDetail.setProperty("timestamp", Instant.now());
 
         return problemDetail;
